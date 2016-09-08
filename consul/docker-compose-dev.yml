@@ -1,0 +1,8 @@
+preprocessing-consul:
+    build: ../.
+    dockerfile: ./consul/Dockerfile.consul
+    command: agent -ui -bootstrap -client=0.0.0.0 -server 
+    container_name: consul
+    ports:
+        - "8500:8500"
+

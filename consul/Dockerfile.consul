@@ -1,0 +1,12 @@
+FROM consul
+
+RUN apk update && \
+    apk add \
+         bash \
+         curl
+
+ADD consul/scripts /tmp
+
+# Install config file
+ADD config /tmp
+

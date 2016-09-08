@@ -1,0 +1,19 @@
+maps-data:
+    build: .
+    dockerfile: ./devops/Dockerfile
+    command:
+        - "/bin/true"
+    volumes: 
+        - "/app"
+        - "/var/lib/postgresql"
+
+maps-nominatim:
+    build: .
+    container_name: nominatim
+    dockerfile: ./devops/Dockerfile
+    ports:
+        - "5432:5432"
+        - "8080:8080"
+    volumes_from:
+        - maps-data
+
