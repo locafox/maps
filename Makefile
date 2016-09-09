@@ -20,8 +20,8 @@ destroy:
 logs:
 	docker-compose logs -f
 import-maps:
-	docker exec -it nominatim bash /tmp/init.sh
-	docker exec -it nominatim bash /app/nominatim/import_nominatim.sh
+	docker exec -t nominatim bash /tmp/init.sh
+	docker exec -t nominatim bash /app/nominatim/import_nominatim.sh
 update:
 	rm -rf nominatim-docker
 	@git clone --branch=nominatim-2.4 https://github.com/helvalius/nominatim-docker.git
